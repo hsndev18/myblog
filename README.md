@@ -16,6 +16,6 @@ Fifth: copy .env.example > .env
 and create new database and edit all the database connection inside .env.
 
 Sixth: run this command :
-`php artisan migrate'
+`php artisan migrate`
 
 Finally: Run the project in the browser 
