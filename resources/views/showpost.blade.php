@@ -14,6 +14,8 @@
                 <div class="card-body">
                     <p>{{ $post->description }}</p>
                     <img src="{{ asset('images/'). "/".$post->image }}" alt="" width="20%">
+
+                    <a href="{{ route('edit-post', $post->id)}}">تعديل المنشور</a>
                 </div>
             </div>
         </div>

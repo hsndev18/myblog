@@ -26,3 +26,6 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->nam
 Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('show-post');
 
 Route::post('/comment/store/{post_id}', [App\Http\Controllers\PostController::class, 'storeComment'])->name('save-comment');
+
+Route::get('/post/{id}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('edit-post');
+Route::put('/post/{id}/update', [App\Http\Controllers\PostController::class, 'update'])->name('update-post');

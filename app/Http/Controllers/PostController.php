@@ -87,9 +87,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($post_id)
     {
-        //
+        $post = Post::where('id', $post_id)->first();
+        return view('editpost', ['post' => $post]);
     }
 
     /**
@@ -99,9 +100,23 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $post_id)
     {
-        //
+        
+        $post = Post::where('id', $post_id)->first();
+        if($request->has('image'))
+        {
+            $image = $request->file('image');
+            $image_name = $image->hashName();
+            $image->move(public_path('images'), $image_name);
+        }
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->image = $image_name;
+        $post->author_id = auth()->user()->id;
+        $post->save();
+
+        return redirect()->route('allposts');
     }
 
     /**
