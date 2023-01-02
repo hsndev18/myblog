@@ -1,4 +1,4 @@
-##STEPS TO INSTALL
+## STEPS TO INSTALL
 First: Go to www or htdocs in your laptop inside the terminal of vscode.
 
 
